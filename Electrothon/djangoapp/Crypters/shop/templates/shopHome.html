@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="{% static 'css/shopHome.css' %}">
+    </head>
+    <body>
+        <h1>shop home</h1>
+        <a href="{% url 'shop:shop_history' %}"><button type="button" name="customer">History</button></a>
+        <a href="{% url 'shop:shop_profile' %}"><button type="button" name="customer">Profile</button></a>
+    </body>
+</html>

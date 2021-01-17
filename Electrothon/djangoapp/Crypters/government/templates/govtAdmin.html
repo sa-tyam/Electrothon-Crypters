@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="{% static 'css/govtAdmin.css' %}">
+    </head>
+    <body>
+        <h1>government admin</h1>
+        <a href="{% url 'government:new_loan' %}"><button type="button" name="customer">new Loan</button></a>
+        <a href="{% url 'government:new_currency' %}"><button type="button" name="customer">new currency</button></a>
+    </body>
+</html>

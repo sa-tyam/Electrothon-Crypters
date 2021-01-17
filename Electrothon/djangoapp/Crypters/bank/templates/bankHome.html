@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="{% static 'css/bankHome.css' %}">
+    </head>
+    <body>
+        <h1>bank home</h1>
+        <a href="{% url 'bank:new_loan' %}"><button type="button" name="customer">new Loan</button></a>
+        <a href="{% url 'bank:past_loan' %}"><button type="button" name="customer">past loan</button></a>
+        <a href="{% url 'bank:admin' %}"><button type="button" name="customer">admin</button></a>
+    </body>
+</html>
