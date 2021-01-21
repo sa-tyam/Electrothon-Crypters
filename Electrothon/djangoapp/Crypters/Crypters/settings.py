@@ -26,7 +26,7 @@ SECRET_KEY = 'w_2!(@ww9nk_ookf()o4!7e!htocwcv(02sm#4!gg)i+g$8!m$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['shopwala.pythonanywhere.com', '127.0.0.1',]
 
 
 # Application definition
@@ -132,5 +132,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'customer:customer_home'
+LOGOUT_REDIRECT_URL = 'accounts:login'
+
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'

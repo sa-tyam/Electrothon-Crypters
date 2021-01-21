@@ -22,6 +22,7 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.LandingPage, name='landing_page'),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
     path('customer/', include('customer.urls', namespace='customer')),
     path('shop/', include('shop.urls', namespace='shop')),
     path('bank/', include('bank.urls', namespace='bank')),

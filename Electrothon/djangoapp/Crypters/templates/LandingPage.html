@@ -9,10 +9,12 @@
     <body>
         <h1><b>Landing Page</b></h1>
         <i>This will be the common login page for all, depending on login id we shall redirect them to other pages</i>
-        <h3><a href="{% url 'government:admin' %}"><button type="button" name="government">government</button></a></h3>
-        <h3><a href="{% url 'bank:bank_home' %}"><button type="button" name="bank">bank</button></a></h3>
-        <h3><a href="{% url 'shop:shop_home' %}"><button type="button" name="shop">shop</button></a></h3>
-        <h3><a href="{% url 'customer:customer_home' %}"><button type="button" name="customer">customer</button></a></h3>
+
+        <h3><a href="{% url 'accounts:login' %}"><button type="button" name="customer">login</button></a></h3>
+
+        <br><br><br>
+        <i>this signup page will be available to banks only, for testing it is present here now</i>
+        <h3><a href="{% url 'accounts:signup' %}"><button type="button" name="customer">sign up</button></a></h3>
 
     </body>
 </html>
