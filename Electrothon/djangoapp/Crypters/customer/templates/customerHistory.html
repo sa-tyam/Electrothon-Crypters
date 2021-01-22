@@ -8,5 +8,17 @@
     </head>
     <body>
         <h1>customer history</h1>
+
+        {% for amount, emi_amount, period, interest, issue_date, end_date in loan_list%}
+        <hr>
+        <h2>loans:</h2>
+
+        amount : {{amount}} <br>
+        period : {{period}}months <br>
+        loan issue date : {{issue_date}} <br>
+        loan end date : {{end_date}} <br>
+        emi amount : {{emi_amount}} <br>
+        <hr>
+        {% endfor %}
     </body>
 </html>

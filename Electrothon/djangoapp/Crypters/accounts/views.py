@@ -19,7 +19,7 @@ def SignUp(request):
             profile.user = user
             profile.save()
 
-            return redirect('accounts:login')
+            return redirect('landing_page')
     else:
         user_form = forms.UserCreateForm()
         profile_form = forms.UserProfileForm()

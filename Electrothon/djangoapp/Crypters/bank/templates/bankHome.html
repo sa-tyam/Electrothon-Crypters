@@ -8,7 +8,9 @@
     </head>
     <body>
         <h1>bank home</h1>
-        <a href="{% url 'bank:new_loan' %}"><button type="button" name="customer">new Loan</button></a>
+        <a href="{% url 'accounts:signup' %}"><button type="button" name="customer">new Customer</button></a>
+        <a href="{% url 'loan:new_loan' %}"><button type="button" name="customer">new Loan</button></a>
+
         <a href="{% url 'bank:past_loan' %}"><button type="button" name="customer">past loan</button></a>
         <a href="{% url 'bank:admin' %}"><button type="button" name="customer">admin</button></a>
     </body>
