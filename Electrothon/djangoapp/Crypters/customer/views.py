@@ -136,6 +136,7 @@ def GetNumberOfOther (request):
     if request.POST.get('username'):
         user_name = request.POST.get('username')
         if user_name:
+            request.session['otheruser'] = user_name
             us = User.objects.get(username=user_name)
             phone =us.userprofile.mobile_number
 
@@ -197,3 +198,30 @@ def GetNumberOfOther (request):
     main_list = zip (amount_list, emi_list, period_list, interest_list, issue_date_list, end_date_list, emi_start_date_list, emi_end_date_list)
 
     return render (request, 'customerHome.html', {'main_list':main_list, 'customer_type':customer_type, 'phone':phone})
+
+def Verified (request):
+    if not request.session.get('otheruser', None):
+		alert ('sorry, wrong page :(')
+        return render (request, 'landing_page')
+    else:
+		otherusername = request.session['otheruser']
+        username = request.user.username
+        u = User.objects.get(username=username)
+        other_u = User.objects.get(username=otherusername)
+
+    if request.method == 'POST':
+        form = forms.TransactionAmountForm(data=request.POST)
+
+        if form.is_valid():
+            amt = request.POST.get('amount')
+            user_amt = u.userprofile.balance
+            other_user_amt = other_u.userprofile.balance
+
+            if amt <= user_amt:
+                other_u.userprofile.balance = other_user_amt - amt
+                u.userprofile.balance = user_amt + amt
+            return redirect('landing_page')
+    else:
+        form = forms.TransactionAmountForm()
+
+    return render (request, 'transactionpage.html')
