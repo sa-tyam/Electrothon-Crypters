@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from datetime import date
+from . import forms
 
 User = get_user_model()
 
@@ -114,6 +115,7 @@ def CustomerProfile (request):
     city = u.userprofile.city
     state =u.userprofile.state
     pin_code =u.userprofile.pin_code
+    balance = u.userprofile.balance
 
     return render (request, 'customerProfile.html', {
         "username":username,
@@ -129,6 +131,7 @@ def CustomerProfile (request):
         'city':city,
         'state':state,
         'pin_code':pin_code
+        'balance':balance,
     })
 
 def GetNumberOfOther (request):
@@ -136,7 +139,8 @@ def GetNumberOfOther (request):
     if request.POST.get('username'):
         user_name = request.POST.get('username')
         if user_name:
-            request.session['otheruser'] = user_name
+            request.session.modified = True
+            request.session['otheruser'] = str(user_name)
             us = User.objects.get(username=user_name)
             phone =us.userprofile.mobile_number
 
@@ -201,27 +205,28 @@ def GetNumberOfOther (request):
 
 def Verified (request):
     if not request.session.get('otheruser', None):
-		alert ('sorry, wrong page :(')
-        return render (request, 'landing_page')
+        print("no other user found")
+        return redirect('landing_page')
     else:
-		otherusername = request.session['otheruser']
+        otherusername = request.session['otheruser']
         username = request.user.username
         u = User.objects.get(username=username)
         other_u = User.objects.get(username=otherusername)
 
     if request.method == 'POST':
-        form = forms.TransactionAmountForm(data=request.POST)
-
-        if form.is_valid():
-            amt = request.POST.get('amount')
-            user_amt = u.userprofile.balance
-            other_user_amt = other_u.userprofile.balance
-
+        amt = request.POST.get('amount')
+        amt = int(amt)
+        user_amt = u.userprofile.balance
+        other_user_amt = other_u.userprofile.balance
+        print(amt)
+        print(user_amt)
+        print(other_user_amt)
+        if user_amt and amt:
             if amt <= user_amt:
                 other_u.userprofile.balance = other_user_amt - amt
                 u.userprofile.balance = user_amt + amt
-            return redirect('landing_page')
+                other_u.save()
+                u.save()
+        return redirect('landing_page')
     else:
-        form = forms.TransactionAmountForm()
-
     return render (request, 'transactionpage.html')
