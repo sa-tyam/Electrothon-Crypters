@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<title>Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+  background-image: linear-gradient(white,grey);
+  
+
+}
+
+.w3-top
+{
+display: inline;
+position: relative;
+}
+
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:bisque;
+  font-size: large;
+  text-align: center;
+}
+table{
+  padding-top: 100px;
+}
+table, th, td {
+  
+  border: 3px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: large;
+  font-family: "Inconsolata", sans-serif;
+  font-weight: bold;
+}
+table{
+  margin-top: 200px;
+  margin-left: 350px;
+  
+}
+
+
+
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s4">
+      <a href="shopkeeper.html" class="w3-button w3-block ">HOME</a>
+    </div>
+    
+    <div class="w3-col s4">
+      <a href="#menu" class="w3-button w3-block ">HISTORY</a>
+    </div>
+    
+     <div class="w3-col s4  ">
+      <a href="#" class="w3-button w3-block ">My Profile</a>
+    </div>
+     
+      
+  </div>
+</div>
+
+<div class="t1">
+<table style="width: 50%">
+  <caption>History Of Loans</caption>
+  
+     <tr>
+      <th>Loan ID</th>
+      <th>Loan Amount</th>
+      <th>Loan Issue Date</th>
+      <th>Loan Last</th>
+      <th>Loan Reason</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>200000</td>
+      <td>22/01/2020</td>
+      <td>22/01/2021</td>
+      <td>Farming Practices</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>200000</td>
+      <td>22/01/2020</td>
+      <td>22/01/2021</td>
+      <td>Farming Practices</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>200000</td>
+      <td>22/01/2020</td>
+      <td>22/01/2021</td>
+      <td>Farming Practices</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>200000</td>
+      <td>22/01/2020</td>
+      <td>22/01/2021</td>
+      <td>Farming Practices</td>
+    </tr>
+    
+  </table>
+</div>
+  
+
+
+
+  <div class="footer">
+    &copy; Copyright <strong><span>NIT Hamirpur</span></strong>. All Rights Reserved
+  </div>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
