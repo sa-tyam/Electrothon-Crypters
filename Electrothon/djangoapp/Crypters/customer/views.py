@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from datetime import date
 from . import forms
+from accounts.models import UserProfile
 
 User = get_user_model()
 
@@ -39,7 +40,7 @@ def CustomerHome (request):
                 loan_list.append(item)
 
     if loan_list:
-        for items in loan_list:
+        for item in loan_list:
             amount = item.amount
             print(amount)
             amount_list.append(amount)
@@ -130,7 +131,7 @@ def CustomerProfile (request):
         'address':address,
         'city':city,
         'state':state,
-        'pin_code':pin_code
+        'pin_code':pin_code,
         'balance':balance,
     })
 
@@ -205,15 +206,17 @@ def GetNumberOfOther (request):
 
 def Verified (request):
     if not request.session.get('otheruser', None):
-        print("no other user found")
+        msg = "no other user found"
         return redirect('landing_page')
     else:
         otherusername = request.session['otheruser']
         username = request.user.username
         u = User.objects.get(username=username)
+        user_prof = UserProfile.objects.get(user=u)
         other_u = User.objects.get(username=otherusername)
-
+        other_user_prof = UserProfile.objects.get(user=other_u)
     if request.method == 'POST':
+        msg = ''
         amt = request.POST.get('amount')
         amt = int(amt)
         user_amt = u.userprofile.balance
@@ -223,10 +226,11 @@ def Verified (request):
         print(other_user_amt)
         if user_amt and amt:
             if amt <= user_amt:
-                other_u.userprofile.balance = other_user_amt - amt
-                u.userprofile.balance = user_amt + amt
-                other_u.save()
-                u.save()
+                other_user_prof.balance = other_user_amt - amt
+                user_prof.userprofile.balance = user_amt + amt
+                other_user_prof.save()
+                user_prof.save()
+                msg = 'saved'
         return redirect('landing_page')
-    else:
+
     return render (request, 'transactionpage.html')
