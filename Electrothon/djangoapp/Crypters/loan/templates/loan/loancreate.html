@@ -4,7 +4,7 @@
     <h1>loan</h1>
     <form method="POST">
         {% csrf_token %}
-        {{loan_form}}
+        {{loan_form.as_p}}
         <input type="submit" value="Issue" class="btn btn-default">
     </form>
 </div>

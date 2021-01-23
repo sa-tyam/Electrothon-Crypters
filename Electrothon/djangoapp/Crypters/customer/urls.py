@@ -10,4 +10,5 @@ urlpatterns = [
     path('', views.CustomerHome, name='customer_home'),
     path('history/', views.CustomerHistory, name='customer_history'),
     path('profile/', views.CustomerProfile, name='customer_profile'),
+    path('get_number/',views.GetNumberOfOther,name="get_number"),
 ]

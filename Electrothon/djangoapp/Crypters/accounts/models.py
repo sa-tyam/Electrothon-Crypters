@@ -24,12 +24,13 @@ class UserProfile(models.Model):
     gender = models.CharField(max_length=200, null=False, choices=GENDER)
     profession = models.CharField(max_length=200, null=False)
     user_type = models.CharField(max_length=200, null=False, choices=USERTYPE)
-    mobile_number = models.CharField(max_length=13, null=False)
-    additional_mobile_number = models.CharField(max_length=13, null=True)
+    mobile_number = models.CharField(max_length=10, null=False)
+    additional_mobile_number = models.CharField(max_length=10, null=True)
     address = models.CharField(max_length=300, null=False)
     city = models.CharField(max_length=200, null=False)
     state = models.CharField(max_length=200, null=False)
     pin_code = models.IntegerField(null=False)
+    balance = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
