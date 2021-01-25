@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/login_form.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="gradient" />
+  <div class="topnav" id="myTopnav">
+    <a href="#home" class="active">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+<form action="/action_page.php" method="post">
+  <h1 >Login </h1>
+  <hr>
+  <div class="imgcontainer">
+    <img src="./image/33-338711_circle-user-icon-blue-hd-png-download.png" alt="Avatar" class="avatar">
+  </div>
+  <div class="container">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="Username" required>
+<label for="psw">Password</label>
+    <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
+    <button type="submit"> Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+  <div class="container" style="background-color:#ecececc0">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+    <p style="text-align: center;">Don't have an account? <a href="registeration.html">Register here</a>.</p>
+  </div>
+</form>
+<script src=" ./js/gradient.js"></script>
+<script src="./js/navbar.js"></script>
+</body>
+
+</html>

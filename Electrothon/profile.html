@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .title {
+            color: grey;
+            font-size: 1px;
+        }
+
+        button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 4px;
+            color: white;
+            background-color: rgb(0, 0, 0);
+            text-align: center;
+            cursor: pointer;
+            width: 80%;
+            font-size: 12px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border: .5px solid rgba(255, 255, 255, 0.527);
+        }
+
+        b {
+            text-decoration: none;
+            font-size: 20px;
+            color: black;
+        }
+
+        button:hover,
+        b:hover {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            font-family: arial;
+            font-size: 20px;
+            left: 0;
+            background-color: #f1f1f1;
+            color: black;
+            overflow-x: hidden;
+            transition: 0.5s;
+            margin: 0;
+        }
+
+        .sidenav a {
+            text-decoration: none;
+            font-size: 20px;
+            padding: 2px;
+            color: #818181;
+            display: block;
+            transition: 0.5s;
+        }
+
+        .sidenav a.active {
+            background-color: #919ecc;
+            color: #f1f1f1;
+
+        }
+
+        .sidenav a:hover {
+            background-color: rgba(255, 255, 255, 0.801);
+            color: rgba(0, 0, 0, 0.801);
+            transition: 0.3s;
+            border-bottom: 1px #aab3d3;
+        }
+
+        a.closebtn:hover {
+            background-color: #f1f1f1;
+            border-bottom: none;
+            color: black;
+            font-size: 25px;
+
+        }
+
+        #main {
+            margin-left: 250px;
+            transition: .5s;
+            padding: 16px;
+            background-color: #aab3d3;
+            box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);
+            overflow-x: hidden;
+        }
+
+        .horibox {
+            background-color: whitesmoke;
+            padding: 10px;
+
+            width: auto;
+            height: 220px;
+            box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);
+        }
+
+        img {
+            display: inline;
+            margin: 0 auto;
+            height: 100%;
+            width: auto;
+        }
+
+        .image-cropper {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 150px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .horibox .image-cropper {
+            margin: 0;
+            width: 200px;
+            height: 200px;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #main openbttn {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+        }
+
+        td {
+            padding: 4px;
+            background-color: rgba(189, 189, 189, 0.404);
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column1 {
+
+            float: left;
+            width: 16%;
+            height: 220px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        .column2 {
+            float: left;
+            width: 28%;
+            height: 220px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        .column2 p {
+            font-size: 15px;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.342);
+        }
+
+        .column2 h1 {
+            margin: 0px;
+            padding-top: 15%;
+            font-size: 36px;
+            text-align: center;
+            color: rgb(66, 66, 66);
+        }
+
+        .column {
+            float: left;
+            width: 33.3%;
+            padding: 10px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after,
+        .row_details:after {
+            content: "";
+            display: table;
+            clear: both;
+            position: relative;
+        }
+
+        @media screen and (max-height: 900px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .sidenav {
+                width: 100%;
+            }
+
+            .horibox {
+                margin-left: auto;
+                margin-right: auto;
+                width: 220px;
+            }
+
+            .horibox .image-cropper {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .column1 {
+                width: 100%;
+                background-color: whitesmoke;
+            }
+
+            .column2,
+            .column {
+
+                width: 100%;
+            }
+
+            .column2 p,
+            .column2 h1 {
+                text-align: center;
+                color: rgb(58, 58, 58);
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            a.closebtn {
+                display: none;
+            }
+
+            .row_details {
+                margin-left: 250px;
+            }
+
+            .row {
+                margin-left: 250px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" style="margin:10px 10px 0 0 ; float:right;"
+            onclick="closeNav()">⤬</a>
+        <div class="image-cropper" id="output" style=" margin-top:115px;">
+            <img src="./image/guy.jpg" class="rounded" />
+        </div>
+        <h4 style="margin:10px;">John Doe</h4>
+        <div>
+            <b href="#"><i class="fa fa-dribbble"></i></b>
+            <b href="#"><i class="fa fa-twitter"></i></b>
+            <b href="#"><i class="fa fa-linkedin"></i></b>
+            <b href="#"><i class="fa fa-facebook"></i></b>
+        </div>
+
+
+        <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display:none;">
+        </p>
+        <p><button><label for="file" style="cursor: pointer;">Edit</label></button></p>
+
+
+        <a class="active" href="#profile">Profile</a>
+        <a href="#account">Account</a>
+        <a href="#status">Status</a>
+    </div>
+
+    <div id="main">
+        <openbttn onclick="openNav()" style="font-size:20px;">&#9776;</openbttn>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="column1">
+            <div class="horibox">
+                <div class="image-cropper">
+                    <img src="./image/guy.jpg" class="rounded" />
+                </div>
+
+            </div>
+        </div>
+        <div class="column2"
+            style="background-color:whitesmoke;box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2); ">
+            <h1>John Doe</h1>
+            <p>Username:john_customer<br>✆91-8922122901 <br>✉justexp@gmail.com</p>
+        </div>
+        <div class="column2" style="background-color:whitesmoke;box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);">
+            <p style="padding-top:10%;color:rgb(77, 77, 77);font-size:23px;">Total no. of Transactions<br><b
+                    style="font-size: 18px; color:#7a68cae0">20</b></p>
+        </div>
+        <div class="column2" style="background-color:whitesmoke;box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);">
+            <p style="padding-top:10%;color:rgb(77, 77, 77);font-size:23px;">Available Balance<br><b
+                    style="font-size: 18px; color:#7a68cae0">₹2400</b></p>
+        </div>
+    </div>
+
+    <div class="row_details"
+        style="height:100%;background-color:whitesmoke;box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);">
+        <div class="per_nav" style="background-color: rgba(31, 31, 31, 0.87);color: rgb(255, 255, 255);">
+            <h3 style="padding:3px;">Personal Details</h3>
+        </div>
+        <div class="column">
+            <p style="text-align: center;background-color: #bbc5e9;color: rgb(68, 14, 14);padding:4px;">User Info</p>
+            <table>
+                <tr>
+                    <td>Username</td>
+                    <td>john_customer</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>Gargy</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td>04/05/1995</td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>Female</td>
+                </tr>
+                <tr>
+                    <td>Profession</td>
+                    <td>Farmer</td>
+                </tr>
+                <tr>
+                    <td>User Type</td>
+                    <td>Farmer</td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="column">
+            <p style="text-align: center;background-color:#bbc5e9;color: rgb(68, 14, 14);padding:4px;">Contact Info</p>
+            <table>
+                <tr>
+                    <td>Mobile no.</td>
+                    <td>8264678993</td>
+                </tr>
+                <tr>
+                    <td>Additional Mobile no.</td>
+                    <td>1892-266713</td>
+                </tr>
+                <tr>
+                    <td>Email Address</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pincode</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="column">
+            <p style="text-align: center;background-color:#bbc5e9;color: rgb(68, 14, 14);padding:4px;">Balance Info</p>
+            <table>
+                <tr>
+                    <td>Bank Name</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Bank Address</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Balance</td>
+                    <td>2400</td>
+                </tr>
+                <tr>
+                    <td>Current Loan</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Current Installment</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function openNav() {
+            if (screen.width > 500) {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            if (screen.width < 500) {
+                document.getElementById("mySidenav").style.width = "100%";
+            }
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+</body>
+
+</html>
