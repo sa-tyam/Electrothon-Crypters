@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <style>
+      body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:rgb(0, 0, 0);
+    margin:0;
+  }
+  * {
+    box-sizing: border-box;
+  }
+        img {
+            display: inline;
+            margin: 0 auto;
+            height: 100%;
+            width: auto;
+        }
+
+        .image-cropper {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 120px;
+            height: 120px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+        
+.column2 label{
+  font-size: 15px;
+  color: #2b2b2b;
+  padding:4px;
+}
+
+ h1 {text-align: center;
+color: rgba(4, 15, 37, 0.952);}
+ p{text-align: center;
+  color: rgba(0, 0, 0, 0.911);}
+ 
+  /* Add padding to containers */
+  /* Full-width input fields */
+  input,#Usertype,#Gender{
+    width: 100%;
+    padding: 3.5%;
+    margin: 2% 0 2% 0;
+    display: inline-block;
+    border: none;
+    background: #ffffff8a;
+    color: #4d4d4d;
+  }
+  
+  input:focus {
+    background-color: rgba(255, 255, 255, 0.63);
+    border: none;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    height:1px;border-width:0;color:rgba(196, 196, 196, 0.418);background-color:rgba(190, 190, 190, 0.377);
+    margin-bottom:2%;
+  }
+  
+  .column1{
+      
+      float: left;
+      width:16% ;
+      padding:10px;
+  }
+  .column2{
+      float:left;
+      width:28%;
+      padding: 10px;
+  }
+  img:hover{
+      opacity:.5;
+  }
+  .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.title{
+background-color: black;
+padding:10px;
+color:white;
+}
+button{
+    margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            padding:5px;
+            border:none;
+            width:80%;
+          
+}
+button:hover{
+    background-color: white;
+    color: black;
+    box-shadow:2px 2px rgba(0, 0, 0, 0.411);
+}
+  @media screen and (max-width: 800px){
+      .column1,.column2{
+          width:100%;
+          float: none;
+      }
+  }
+    </style>
+</head>
+<body>
+    <div class="row" style="background-color: #f1f1f1; height:100%;">
+    <div class=column1>
+        <div class="image-cropper">
+            <input type="file" accept="image/*" name="image" id="file" style="display:none;">
+             <label for="file" style="cursor: pointer;"><img src="./image/guy.jpg" class="rounded" /></label>
+        </div>
+        <a href="profile.html" style="  text-decoration: none;"><button>Save Changes</button></a>
+        <a href="profile.html" style="  text-decoration: none;"><button>Return</button></a>
+    </div>
+     <div class="column2">
+        <p class="title"  style="text-align: center;">Personal Info</p>
+    <label for="username">Username</label><br>
+      <p id="message" style="font-size:12px;color:rgb(30, 143, 2);display: none; ">*Required:150 characters or
+        fewer.Letters,digits and @/+/./-/_ only.<br></p>
+      <input type="text" id="username" name="username" placeholder="Username" onclick="Function()">
+     
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="First Name">
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Last Name">
+      <label for="date">Date of Birth</label>
+     <input type="date" id="birthday" name="birthday" placeholder="Date of Birth">
+     <label for="age">Age</label>
+     <input type="number" id="age" name="age" placeholder="Age" min="18" max="100">
+     <label for="Gender">Gender</label>
+     <select id="Gender" name="Gender">
+      <option value="Male" style="font-size:15px;border-right: none;color:rgba(97, 97, 97, 0.322);padding:3px;">
+       Male</option>
+      <option value="Female" style="font-size:15px;border: none;color:rgba(97, 97, 97, 0.322);padding:3px;">Female
+      </option>
+      <option value="Other" style="font-size:15px;border: none;color:rgba(97, 97, 97, 0.322);padding:3px;">Other
+      </option>
+    </select>
+    <label for="profession">Profession</label>
+    <input type="text" placeholder="Profession" name="profession" id="profession">
+    <label for="Usertype">Usertype</label>
+      <select id="Usertype" name="Usertype">
+        <option value="Shopkeeper" style="font-size:15px;border-right: none;color:rgba(97, 97, 97, 0.322);padding:3px;">
+          Shopkeeper</option>
+        <option value="Farmer" style="font-size:15px;border: none;color:rgba(97, 97, 97, 0.322);padding:3px;">Farmer
+        </option>
+      </select>
+      <label for="psw">Password</label>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+       
+    </div>
+    <div class="column2">
+        <p class="title"  style="text-align: center;">Contact Info</p>
+        <label for="phone">Mobile Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Mobile Number" pattern="[0-9]{10}" >
+      <label for="aphone">Additional Mobile Number</label>
+      <input type="tel" id="aphone" name="aphone" placeholder="Additional Mobile Number" pattern="[0-9]{10}">
+        
+        <label for="email">Email Address</label>
+        <input type="text" placeholder="Email Address" name="email" id="email" >
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" placeholder="Address" >
+      <label for="city">City</label>
+      <input type="text" id="city" name="city" placeholder="City" >
+      <label for="state">State</label>
+      <input type="text" id="state" name="state" placeholder="State" >
+      <label for="pincode">Pincode</label>
+      <input type="number" id="pincode" name="pincode" placeholder="Pin Code" >
+    </div>
+    <div class="column2">
+        <p class="title" style="text-align: center;">Account Info</p>
+      <label for="bankname">Bank Name</label>
+      <input type="text" id="bankname" name="bankname" placeholder="Bank Name">
+      <label for="bankaddress">Bank Address</label>
+      <input type="text" id="bankaddress" name="bankaddress" placeholder="Bank Adress">
+      <label for="balance">Balance</label>
+      <input type="number" id="balance" name="balance" placeholder="Balance">
+      <label for="currentloan">Current Loan</label>
+      <input type="text" id="currentloan" name="currentloan" placeholder="Current Loan">
+      <label for="currentins">Current Installment</label>
+      <input type="text" id="currentins" name="currentins" placeholder="Current Installment">
+    </div>
+</div>
+ 
+
+</body>
+</html>
