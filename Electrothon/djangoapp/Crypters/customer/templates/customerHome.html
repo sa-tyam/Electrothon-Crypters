@@ -2,17 +2,17 @@
 {% load static %}
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8">
-        <title></title>
+        <title>Shopkeeper Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
         <link rel="stylesheet" href="{% static 'css/customerHome.css' %}">
     </head>
     <body>
 
         {% if customer_type %}
-        <h4>customer type id {{customer_type}}</h4>
-
-
-<br>
+        <br>
         {% if phone %}
         <h2>{{phone}}</h2>
 
@@ -97,21 +97,123 @@
 </div>
         {% endif %}
 
-        <a href="{% url 'customer:customer_history' %}"><button type="button" name="customer">History</button></a>
-        <a href="{% url 'customer:customer_profile' %}"><button type="button" name="customer">Profile</button></a>
-        <br><br><br><br>
-        <h1>customer home</h1>
-        {% for amount, emi_amount, period, interest, issue_date, end_date, emi_start_date, emi_end_date in main_list%}
-        <hr>
-        <h2>current loan:</h2>
-        amount : {{amount}} <br>
-        period : {{period}}months <br>
-        loan issue date : {{issue_date}} <br>
-        loan end date : {{end_date}} <br>
-        emi amount : {{emi_amount}} <br>
-        emi start date : {{emi_start_date}}<br>
-        emi end date : {{emi_end_date}} <br>
-        <hr>
-        {% endfor %}
+
+        <!-- Links (sit on top) -->
+        <div class="w3-top">
+          <div class="w3-row w3-padding w3-black">
+            <div class="w3-col s3">
+              <a href="{% url 'customer:customer_home' %}" class="w3-button w3-block ">HOME</a>
+            </div>
+
+            <div class="w3-col s3">
+              <a  href="{% url 'customer:customer_history' %}" class="w3-button w3-block ">HISTORY</a>
+            </div>
+
+             <div class="w3-col s3  ">
+              <a href="{% url 'customer:customer_profile' %}" class="w3-button w3-block ">My Profile</a>
+            </div>
+
+        <div class="w3-col s3">
+              <form class="example"  style="margin:auto;max-width:300px">
+                <input type="text" placeholder="Search.." name="search2">
+                <button type="submit"><a href="#"></a>Verify</button>
+              </form>
+          </div>
+
+
+
+
+
+
+          </div>
+        </div>
+
+        <!-- Header with image -->
+        <header class="bgimg w3-display-container w3-grayscale-min" id="home">
+          <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small w3-large w3-ca">
+            <span class="w3-tag">Customer ID: Shopkeeper</span>
+          </div>
+          <div class="w3-display-middle w3-center">
+            <span class="w3-text-white" style="font-size:50px">Every Bit Is<br>Worth It</span>
+          </div>
+
+
+
+        </header>
+
+        <!-- Add a background color and large text to the whole page -->
+        <div class="w3-sand w3-grayscale w3-large">
+
+
+            <!-- Added Current Loans-->
+            <div class="loans">
+                {% for amount, emi_amount, period, interest, issue_date, end_date, emi_start_date, emi_end_date in main_list%}
+                <hr>
+                <h2>current loan:</h2>
+                amount : {{amount}} <br>
+                period : {{period}}months <br>
+                loan issue date : {{issue_date}} <br>
+                loan end date : {{end_date}} <br>
+                emi amount : {{emi_amount}} <br>
+                emi start date : {{emi_start_date}}<br>
+                emi end date : {{emi_end_date}} <br>
+                <hr>
+                {% endfor %}
+            </div>
+
+        <!-- About Container -->
+        <div class="w3-container" id="about">
+          <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT US</span></h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias laborum dolore voluptatem atque ex. Eaque deleniti facilis ad voluptas, eum necessitatibus unde soluta velit, neque ab cum sint expedita!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo harum nihil accusamus optio eligendi inventore impedit minima voluptatibus illo quidem ipsam ipsum eveniet maxime omnis hic a, est dolores labore.</p>
+
+          </div>
+        </div>
+
+
+        <!-- Contact/Area Container -->
+        <div class="w3-container" id="where" style="padding-bottom:32px;">
+          <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">Contact US</span></h5>
+
+            <form action="/action_page.php" target="_blank">
+              <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+              <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="E-mail ID" required name="E-mail ID"></p>
+
+              <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p>
+              <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+              <p><button class="w3-button w3-black" type="submit">SEND MESSAGE</button></p>
+            </form>
+          </div>
+        </div>
+
+        <!-- End page content -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+          <div class="copyright">
+            &copy; Copyright <strong><span>NIT Hamirpur</span></strong>. All Rights Reserved
+          </div>
+        </footer>
+
+        <script>
+        // Tabbed Menu
+        function openMenu(evt, menuName) {
+          var i, x, tablinks;
+          x = document.getElementsByClassName("menu");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+          }
+          document.getElementById(menuName).style.display = "block";
+          evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+        }
+        document.getElementById("myLink").click();
+        </script>
     </body>
 </html>

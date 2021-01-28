@@ -7,6 +7,20 @@
         <link rel="stylesheet" href="{% static 'css/bankPastLoan.css' %}">
     </head>
     <body>
-        <h1>bank past Loan</h1>
+        <h1>bank Loans</h1>
+
+        {% for user, username, amount, emi_amount, period, interest, issue_date, end_date in main_list %}
+        <hr>
+            user : {{user}}
+            username : {{username}}
+            amount : {{amount}}
+            emi_amount : {{emi_amount}}
+            period : {{period}}months
+            interest : {{interest}}
+            issue_date : {{issue_date}}
+            end_date : {{end_date}}
+            <hr>
+        {% endfor %}
+
     </body>
 </html>

@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from datetime import date
 from . import forms
 from accounts.models import UserProfile
 
 User = get_user_model()
+
+verification_flag = False
 
 # Create your views here.
 
@@ -98,7 +100,25 @@ def CustomerHistory (request):
             end_date_list.append(end_date)
 
     loan_list = zip (amount_list, emi_list, period_list, interest_list, issue_date_list, end_date_list)
-    return render (request, 'customerHistory.html', {'loan_list': loan_list})
+
+    trans_list = []
+    trans_amount_list = []
+    trans_depositor_list = []
+    trans_time_list = []
+
+    trans_temp_list = u.customertransactions_set.all()
+    if trans_temp_list:
+        for item in trans_temp_list:
+            trans_amt = item.amount
+            trans_amount_list.append(trans_amt)
+            depositor = item.depositor
+            trans_depositor_list.append(depositor)
+            trans_time = item.created_at
+            trans_time_list.append(trans_time)
+
+    trans_list = zip (trans_amount_list, trans_depositor_list, trans_time_list)
+
+    return render (request, 'customerHistory.html', {'loan_list': loan_list, 'trans_list':trans_list})
 
 def CustomerProfile (request):
 
@@ -177,7 +197,7 @@ def GetNumberOfOther (request):
                 loan_list.append(item)
 
     if loan_list:
-        for items in loan_list:
+        for item in loan_list:
             amount = item.amount
             print(amount)
             amount_list.append(amount)
@@ -216,21 +236,24 @@ def Verified (request):
         other_u = User.objects.get(username=otherusername)
         other_user_prof = UserProfile.objects.get(user=other_u)
     if request.method == 'POST':
-        msg = ''
-        amt = request.POST.get('amount')
-        amt = int(amt)
-        user_amt = u.userprofile.balance
-        other_user_amt = other_u.userprofile.balance
-        print(amt)
-        print(user_amt)
-        print(other_user_amt)
-        if user_amt and amt:
-            if amt <= user_amt:
-                other_user_prof.balance = other_user_amt - amt
-                user_prof.userprofile.balance = user_amt + amt
-                other_user_prof.save()
-                user_prof.save()
-                msg = 'saved'
-        return redirect('landing_page')
-
-    return render (request, 'transactionpage.html')
+        trans_form = forms.CustomerTransactionsForm(data=request.POST)
+        if trans_form.is_valid():
+            transaction = trans_form.save(commit=False)
+            transaction_other = trans_form.save(commit=False)
+            amt = transaction.amount
+            amt = int(amt)
+            user_amt = u.userprofile.balance
+            other_user_amt = other_u.userprofile.balance
+            if user_amt and amt:
+                if amt <= user_amt:
+                    other_user_prof.balance = other_user_amt - amt
+                    user_prof.balance = user_amt + amt
+                    other_user_prof.save()
+                    user_prof.save()
+                    transaction.user = u
+                    transaction.depositor = other_u.username
+                    transaction.save()
+        return CustomerHome(request)
+    else:
+        trans_form = forms.CustomerTransactionsForm()
+    return render (request, 'transactionpage.html', {'trans_form':trans_form})

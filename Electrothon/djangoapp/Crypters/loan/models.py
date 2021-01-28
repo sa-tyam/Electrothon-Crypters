@@ -13,9 +13,15 @@ class Loan (models.Model):
     issue_date = models.DateField(auto_now=True, null=False)
     end_date = models.DateField(null=False)
 
+    class Meta:
+        ordering = ['-issue_date']
+
 class Emi (models.Model):
     loan = models.ForeignKey(Loan, null=True, blank=True, on_delete=models.CASCADE)
     amount = models.IntegerField(null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=False)
     paid_date = models.DateField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['-start_date']

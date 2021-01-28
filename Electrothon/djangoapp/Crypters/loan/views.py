@@ -6,6 +6,7 @@ from datetime import date, datetime, timedelta
 from dateutil.relativedelta import *
 
 from . import models
+from accounts.models import UserProfile
 
 from . import forms
 
@@ -16,7 +17,10 @@ def IssueLoan(request):
         if loan_form.is_valid():
             username = request.POST.get('username')
             user = User.objects.get(username=username)
+            user_prof = UserProfile.objects.get(user=user)
             loan = loan_form.save(commit=False)
+            user_prof.balance = user_prof.balance + loan.amount
+            user_prof.save()
             loan.user = user
             p = loan.amount
             r = loan.interest/100

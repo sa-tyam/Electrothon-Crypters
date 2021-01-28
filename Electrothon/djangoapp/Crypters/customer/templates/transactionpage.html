@@ -8,7 +8,7 @@
         <h1>transaction page</h1>
         <form method="POST">
             {% csrf_token %}
-            <input type="number" name="amount" value="" placeholder="amount">
+            {{trans_form.as_p}}
             <input type="submit" value="pay" class="btn btn-default">
         </form>
     </body>
