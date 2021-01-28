@@ -38,8 +38,6 @@
            <th>Amount</th>
            <th>Depositor</th>
            <th>Loan Issue Time</th>
-           <th>Loan Last</th>
-           <th>Loan Reason</th>
          </tr>
 
           {% for amount, depositor, time in trans_list%}
@@ -50,33 +48,29 @@
           </tr>
           {% endfor %}
           </table>
-        </div>
 
+          <table style="width: 50%">
+            <caption>History Of Loans</caption>
 
-        <div class="t1">
-        <table style="width: 50%">
-          <caption>History Of Loans</caption>
-
-          <tr>
-           <th>Amount</th>
-           <th>Period</th>
-           <th>Issue Date</th>
-           <th>Last Date</th>
-           <th>EMI</th>
-         </tr>
-
-         {% for amount, emi_amount, period, interest, issue_date, end_date in loan_list%}
             <tr>
-                <th>Rs. {{amount}}</th>
-                <th>{{Period}} months</th>
-                <th>{{issue_date}}</th>
-                <th>{{end_date}}</th>
-                <th>Rs. {{emi_amount}}</th>
-            </tr>
-         {% endfor %}
-          </table>
-        </div>
+             <th>Amount</th>
+             <th>Period</th>
+             <th>Issue Date</th>
+             <th>Last Date</th>
+             <th>EMI</th>
+           </tr>
 
+           {% for amount, emi_amount, period, interest, issue_date, end_date in loan_list%}
+              <tr>
+                  <th>Rs. {{amount}}</th>
+                  <th>{{Period}} months</th>
+                  <th>{{issue_date}}</th>
+                  <th>{{end_date}}</th>
+                  <th>Rs. {{emi_amount}}</th>
+              </tr>
+           {% endfor %}
+            </table>
+        </div>
 
         <div class="footer">
           &copy; Copyright <strong><span>NIT Hamirpur</span></strong>. All Rights Reserved

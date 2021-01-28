@@ -2,25 +2,162 @@
 {% load static %}
 <html lang="en" dir="ltr">
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
-        <title></title>
+        <title>profile</title>
         <link rel="stylesheet" href="{% static 'css/customerProfile.css' %}">
     </head>
     <body>
-        <h1>customer Profile</h1>
-        <h2>username : {{username}}</h2>
-        <h2>name : {{name}}</h2>
-        <h3>date_of_birth : {{date_of_birth}}</h3>
-        <h3>age : {{age}}</h3>
-        <h3>gender : {{gender}}</h3>
-        <h3>profession : {{profession}}</h3>
-        <h3>user_type : {{user_type}}</h3>
-        <h3>mobile_number : {{mobile_number}}</h3>
-        <h3>additional_mobile_number : {{additional_mobile_number}}</h3>
-        <h3>address : {{address}}</h3>
-        <h3>city : {{city}}</h3>
-        <h3>state : {{state}}</h3>
-        <h3>pin_code : {{pin_code}}</h3>
-        <h3>balance : {{balance}}</h3>
+
+        <div id="main">
+            <openbttn onclick="openNav()" style="font-size:20px;">&#9776;</openbttn>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="column1">
+                <div class="horibox">
+                    <div class="image-cropper">
+                        <img src="./image/guy.jpg" class="rounded" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="column2"
+                style="background-color:whitesmoke;box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2); ">
+                <h1>{{name}}</h1>
+                <p>Username:{{username}}<br>✆{{mobile_number}} <br>✉NA</p>
+            </div>
+            <div class="column2" style="background-color:whitesmoke;box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);">
+                <p style="padding-top:10%;color:rgb(77, 77, 77);font-size:23px;">Total no. of Transactions<br><b
+                        style="font-size: 18px; color:#7a68cae0">NA</b></p>
+            </div>
+            <div class="column2" style="background-color:whitesmoke;box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);">
+                <p style="padding-top:10%;color:rgb(77, 77, 77);font-size:23px;">Available Balance<br><b
+                        style="font-size: 18px; color:#7a68cae0">₹{{balance}}</b></p>
+            </div>
+        </div>
+
+        <div class="row_details"
+            style="height:100%;background-color:whitesmoke;box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);">
+            <div class="per_nav" style="background-color: rgba(0, 0, 0, 0.87);color: rgb(255, 255, 255);">
+                <h3 style="padding:3px;">Personal Details</h3>
+            </div>
+            <div class="column">
+                <p style="text-align: center;background-color: #bbc5e9;color: rgb(68, 14, 14);padding:4px;">User Info</p>
+                <table>
+                    <tr>
+                        <td>Username</td>
+                        <td>{{username}}</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td>{{date_of_birth}}</td>
+                    </tr>
+                    <tr>
+                        <td>Age</td>
+                        <td>{{age}}</td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>{{gender}}</td>
+                    </tr>
+                    <tr>
+                        <td>Profession</td>
+                        <td>{{profession}}</td>
+                    </tr>
+                    <tr>
+                        <td>User Type</td>
+                        <td>{{user_type}}</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="column">
+                <p style="text-align: center;background-color:#bbc5e9;color: rgb(68, 14, 14);padding:4px;">Contact Info</p>
+                <table>
+                    <tr>
+                        <td>Mobile no.</td>
+                        <td>{{mobile_number}}</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Mobile no.</td>
+                        <td>{{additional_mobile_number}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email Address</td>
+                        <td>NA</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>{{address}}</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td>{{city}}</td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td>{{state}}</td>
+                    </tr>
+                    <tr>
+                        <td>Pincode</td>
+                        <td>{{pin_code}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="column">
+                <p style="text-align: center;background-color:#bbc5e9;color: rgb(68, 14, 14);padding:4px;">Balance Info</p>
+                <table>
+                    <tr>
+                        <td>Bank Name</td>
+                        <td>NA</td>
+                    </tr>
+                    <tr>
+                        <td>Bank Address</td>
+                        <td>NA</td>
+                    </tr>
+                    <tr>
+                        <td>Balance</td>
+                        <td>{{balance}}</td>
+                    </tr>
+                    <tr>
+                        <td>Current Loan</td>
+                        <td>NA</td>
+                    </tr>
+                    <tr>
+                        <td>Current Installment</td>
+                        <td>NA</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            function openNav() {
+                if (screen.width > 500) {
+                    document.getElementById("mySidenav").style.width = "250px";
+                    document.getElementById("main").style.marginLeft = "250px";
+                }
+                if (screen.width < 500) {
+                    document.getElementById("mySidenav").style.width = "100%";
+                }
+            }
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        </script>
+        <script>
+            var loadFile = function (event) {
+                var image = document.getElementById('output');
+                image.src = URL.createObjectURL(event.target.files[0]);
+            };
+        </script>
+
+
     </body>
 </html>
