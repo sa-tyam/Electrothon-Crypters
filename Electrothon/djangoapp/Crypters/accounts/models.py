@@ -3,27 +3,17 @@ from django.db import models
 from django.utils import timezone
 
 from django.contrib.auth.models import User
+from blockchainpart.models import Chain
 
 class UserProfile(models.Model):
 
-    GENDER = (
-        ('male', 'male'),
-        ('female', 'female'),
-        ('not defined', 'not defined'),
-    )
-
-    USERTYPE = (
-        ('farmer', 'farmer'),
-        ('shopkeeper', 'shopkeeper'),
-    )
-
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=False)
-    date_of_birth = models.CharField(max_length=200, null=False)
+    date_of_birth = models.DateField(max_length=200, null=False)
     age = models.IntegerField(null=False)
-    gender = models.CharField(max_length=200, null=False, choices=GENDER)
+    gender = models.CharField(max_length=200, null=False)
     profession = models.CharField(max_length=200, null=False)
-    user_type = models.CharField(max_length=200, null=False, choices=USERTYPE)
+    user_type = models.CharField(max_length=200, null=False)
     mobile_number = models.CharField(max_length=10, null=False)
     additional_mobile_number = models.CharField(max_length=10, null=True)
     address = models.CharField(max_length=300, null=False)
@@ -31,6 +21,7 @@ class UserProfile(models.Model):
     state = models.CharField(max_length=200, null=False)
     pin_code = models.IntegerField(null=False)
     balance = models.IntegerField(null=True)
+    chain = models.ForeignKey(Chain, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

@@ -4,6 +4,8 @@ from datetime import date
 from . import forms
 from accounts.models import UserProfile
 
+from blockchainpart.models import Chain
+
 User = get_user_model()
 
 verification_flag = False
@@ -13,6 +15,9 @@ verification_flag = False
 def CustomerHome (request):
     username = request.user.username
     u = User.objects.get(username=username)
+
+    if u.is_staff:
+        return redirect('bank:bank_home')
 
     customer_type = ''
     if u.userprofile.user_type == 'shopkeeper':
@@ -250,6 +255,12 @@ def Verified (request):
                     user_prof.balance = user_amt + amt
                     other_user_prof.save()
                     user_prof.save()
+                    user_chain = user_prof.chain
+                    user_chain.add(ammount_transferred=amt, remaining_balance=user_prof.balance)
+                    user_chain.save()
+                    other_user_chain = other_user_prof.chain
+                    other_user_chain.add(ammount_transferred=amt, remaining_balance=other_user_prof.balance)
+                    other_user_chain.save()
                     transaction.user = u
                     transaction.depositor = other_u.username
                     transaction.save()

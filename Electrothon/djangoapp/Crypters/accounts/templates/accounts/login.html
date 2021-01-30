@@ -1,11 +1,34 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block head_content %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+{% endblock %}
+
 {% block content %}
-<div class="container">
-    <h1>Login</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Login" class="btn btn-default">
-    </form>
-</div>
+
+<div id="gradient" />
+<form method="post">
+    {% csrf_token %}
+  <h1 >Login </h1>
+  <hr>
+  <div class="imgcontainer">
+    <img src="{% static 'media/login.png' %}" alt="Avatar" class="avatar">
+  </div>
+  <div class="container">
+   <label for="{{ form.username.id_for_label }}">Username</label>
+   <input type="text" id="username"  name="{{ form.username.html_name }}" placeholder="Username" required>
+    {{ form.username.errors }}
+    <label for="{{ form.password.id_for_label }}">password</label>
+    <input type="password" name="{{ form.password.html_name }}" placeholder="Enter Password" id="psw"required>
+     {{ form.password.errors }}
+     <button type="submit" value="Login"> Login</button>
+  </div>
+</form>
+{% endblock %}
+
+{% block js_content %}
+    <script src="{% static 'js/login.js' %}"></script>
 {% endblock %}

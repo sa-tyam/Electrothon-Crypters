@@ -7,7 +7,7 @@ class DateInput(forms.DateInput):
 class LoanCreateForm (forms.ModelForm):
     class Meta:
         fields = '__all__'
-        exclude = ['user', 'emi_amount', 'end_date']
+        exclude = ['user', 'emi_amount', 'end_date', 'block_chain']
         model = models.Loan
         widgets = {
             'end_date': DateInput(),

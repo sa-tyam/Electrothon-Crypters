@@ -14,5 +14,5 @@ class UserCreateForm(forms.ModelForm):
 class UserProfileForm (forms.ModelForm):
     class Meta:
         fields = '__all__'
-        exclude = ['user']
+        exclude = ['user', 'chain']
         model = models.UserProfile

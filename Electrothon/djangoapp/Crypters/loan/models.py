@@ -12,7 +12,6 @@ class Loan (models.Model):
     interest = models.IntegerField(null=False)
     issue_date = models.DateField(auto_now=True, null=False)
     end_date = models.DateField(null=False)
-
     class Meta:
         ordering = ['-issue_date']
 

@@ -11,4 +11,5 @@ urlpatterns = [
     path('admin/', views.BankAdmin, name='admin'),
     path('new_loan/', views.BankNewLoan, name='new_loan'),
     path('past_loan/', views.BankPastLoan, name='past_loan'),
+    path('get_user_block/', views.GetUserBlock, name='get_user_block'),
 ]

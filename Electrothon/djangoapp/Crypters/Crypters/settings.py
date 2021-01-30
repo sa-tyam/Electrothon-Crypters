@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'government',
     'shop',
     'loan',
+    'blockchainpart',
+    'cryptography',
 ]
 
 MIDDLEWARE = [

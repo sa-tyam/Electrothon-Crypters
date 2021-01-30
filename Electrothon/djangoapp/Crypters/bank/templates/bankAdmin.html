@@ -8,5 +8,24 @@
     </head>
     <body>
         <h1>bank Admin</h1>
+        <form action="{% url 'bank:get_user_block' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" value="">
+            <button type="submit" name='mybtn2' value="">get blocks</button>
+        </form>
+        {% for time_stamp, index, ammount_transferred, remaining_balance, hash, previous_hash, chain, nonce in main_list %}
+        <hr>
+        <h3>block</h3>
+        time stamp : {{time_stamp}}
+        <b><i>index : {{index}}</i></b>
+        amount transferred : {{ammount_transferred}}
+        remaining_balance : {{remaining_balance}}
+        <b><i>hash : {{hash}}</i></b>
+        <b><i>previous hash : {{previous_hash}}</i></b>
+        chain : {{chain}}
+        nonce : {{nonce}}
+        <br>
+        <hr>
+        {% endfor%}
     </body>
 </html>

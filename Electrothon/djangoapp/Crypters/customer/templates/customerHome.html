@@ -11,91 +11,6 @@
     </head>
     <body>
 
-        {% if customer_type %}
-        <br>
-        {% if phone %}
-        <h2>{{phone}}</h2>
-
-        <div class="form-container">
-		<form class="phone-number-form" id="phone-number-form" method="post">
-		    {% csrf_token %}
-		    <div id="recaptcha-container"></div>
-		    <button type="button" id="send-code-button" onclick="phoneAuth();">Send Code</button>
-		</form>
-		<h1>Enter verification code</h1>
-		<form class="otp-form" id="otp-form" method="post">
-		    {% csrf_token %}
-		    <input type="text" name="otp-number" id="otp-number" maxlength = "6" value="" required>
-		    <div></div>
-		    <button type="button" id="verify-button" onclick="codeVerify();" name="button">Verify</button>
-		</form>
-</div>
-<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"> </script>
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-      apiKey: "AIzaSyDo7gxS0VaOMNZoa9-utmZXdyPZ_QyI0D4",
-      authDomain: "crypters-c6f53.firebaseapp.com",
-      projectId: "crypters-c6f53",
-      storageBucket: "crypters-c6f53.appspot.com",
-      messagingSenderId: "902350997734",
-      appId: "1:902350997734:web:8d49e2212e4605e0fcd327"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  </script>
-
-<script type="text/javascript">
-
-    var number;
-    window.onload=function() {
-        render();
-    }
-    function render() {
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-        recaptchaVerifier.render();
-    }
-    function phoneAuth(){
-        number = {{phone}};
-        number = "+91" + number;
-        alert(number);
-        firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function(confirmationResult){
-            window.confirmationResult = confirmationResult;
-            coderesult = confirmationResult;
-        }).catch(function(error){
-            alert(error.message);
-        });
-    }
-
-    function codeVerify() {
-        document.getElementById("verify-button").disabled = true;
-        var code = document.getElementById('otp-number').value;
-        coderesult.confirm(code).then(function(result) {
-            var user = result.user;
-            console.log(user);
-            user_id = user.uid.toString();
-            alert ("verified");
-            window.location.replace("verified/");
-        }).catch(function(error){
-            alert(error.message);
-        });
-    }
-</script>
-
-        {% else %}
-        <form action="{% url 'customer:get_number' %}" method="post">
-            {% csrf_token %}
-            <input type="text" name="username" value="">
-            <button type="submit" name='mybtn2' value="">verify</button>
-        </form>
-        {% endif %}
-<br>
-</div>
-        {% endif %}
 
 
         <!-- Links (sit on top) -->
@@ -215,5 +130,94 @@
         }
         document.getElementById("myLink").click();
         </script>
+
+
+
+
+        {% if customer_type %}
+        <br>
+        {% if phone %}
+        <h2>{{phone}}</h2>
+
+        <div class="form-container">
+		<form class="phone-number-form" id="phone-number-form" method="post">
+		    {% csrf_token %}
+		    <div id="recaptcha-container"></div>
+		    <button type="button" id="send-code-button" onclick="phoneAuth();">Send Code</button>
+		</form>
+		<h1>Enter verification code</h1>
+		<form class="otp-form" id="otp-form" method="post">
+		    {% csrf_token %}
+		    <input type="text" name="otp-number" id="otp-number" maxlength = "6" value="" required>
+		    <div></div>
+		    <button type="button" id="verify-button" onclick="codeVerify();" name="button">Verify</button>
+		</form>
+</div>
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"> </script>
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+      apiKey: "AIzaSyDo7gxS0VaOMNZoa9-utmZXdyPZ_QyI0D4",
+      authDomain: "crypters-c6f53.firebaseapp.com",
+      projectId: "crypters-c6f53",
+      storageBucket: "crypters-c6f53.appspot.com",
+      messagingSenderId: "902350997734",
+      appId: "1:902350997734:web:8d49e2212e4605e0fcd327"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script>
+
+<script type="text/javascript">
+
+    var number;
+    window.onload=function() {
+        render();
+    }
+    function render() {
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+        recaptchaVerifier.render();
+    }
+    function phoneAuth(){
+        number = {{phone}};
+        number = "+91" + number;
+        alert(number);
+        firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function(confirmationResult){
+            window.confirmationResult = confirmationResult;
+            coderesult = confirmationResult;
+        }).catch(function(error){
+            alert(error.message);
+        });
+    }
+
+    function codeVerify() {
+        document.getElementById("verify-button").disabled = true;
+        var code = document.getElementById('otp-number').value;
+        coderesult.confirm(code).then(function(result) {
+            var user = result.user;
+            console.log(user);
+            user_id = user.uid.toString();
+            alert ("verified");
+            window.location.replace("verified/");
+        }).catch(function(error){
+            alert(error.message);
+        });
+    }
+</script>
+
+        {% else %}
+        <form action="{% url 'customer:get_number' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" value="">
+            <button type="submit" name='mybtn2' value="">verify</button>
+        </form>
+        {% endif %}
+<br>
+</div>
+        {% endif %}
     </body>
 </html>

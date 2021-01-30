@@ -8,6 +8,8 @@ from dateutil.relativedelta import *
 from . import models
 from accounts.models import UserProfile
 
+from blockchainpart.models import Chain
+
 from . import forms
 
 def IssueLoan(request):
@@ -21,6 +23,9 @@ def IssueLoan(request):
             loan = loan_form.save(commit=False)
             user_prof.balance = user_prof.balance + loan.amount
             user_prof.save()
+            user_chain = user_prof.chain
+            user_chain.add(ammount_transferred = loan.amount, remaining_balance=user_prof.balance)
+            user_chain.save()
             loan.user = user
             p = loan.amount
             r = loan.interest/100
