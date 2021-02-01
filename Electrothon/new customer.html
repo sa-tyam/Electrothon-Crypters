@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<title>Customer Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+}
+
+.w3-top
+{
+display: inline;
+
+}
+
+.bgimg {
+  
+  background-position: center;
+  background-size: cover;
+  background-image: url("demo.png");
+  min-height:95%;
+  position:relative;
+}
+
+
+.menu {
+  display: none;
+}
+
+#loans
+{
+  
+  max-width: 700px;
+  margin-bottom:50px;
+
+}
+#1 a:hover{
+  color: white;
+}
+
+
+
+
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="container" >
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-white">
+    <div class="w3-col s4">
+      <a href="new_customer.html" class=" w3-button w3-block"><b>HOME</b></a>
+    </div>
+    
+    <div class="w3-col s4">
+      <a href="new_history_Customer.html" class="w3-button w3-block " ><b>HISTORY</b></a>
+    </div>
+    
+     <div class="w3-col s4  ">
+      <a href="profile.html" class="w3-button w3-block " ><b>MY PROFILE</b></a>
+    </div>
+    
+   
+      
+  </div>
+</div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small w3-large w3-ca">
+    <span class="w3-tag">Customer ID: Farmer</span>
+  </div>
+  
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-black" style="font-size:50px">Every Bit Is<br>Worth It</span>
+  </div>
+  
+ 
+    
+
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-16" ><span class="w3-tag w3-wide">CURRENT LOANS</span></h5>
+    <p id="loans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias laborum dolore voluptatem atque ex. Eaque deleniti facilis ad voluptas, eum necessitatibus unde soluta velit, neque ab cum sint expedita!</p>
+   
+    
+  </div>
+</div>
+
+<!-- Added Current Loans-->
+
+
+
+<!-- Contact/Area Container -->
+
+
+<!-- End page content -->
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-43 w3-large">
+  <div class="copyright">
+    &copy; Copyright <strong><span>NIT Hamirpur</span></strong>. All Rights Reserved
+  </div>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
