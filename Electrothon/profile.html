@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/topnav.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
@@ -48,7 +49,7 @@
 
         .sidenav {
             height: 100%;
-            width: 250px;
+            width: 100%;
             text-align: center;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             position: fixed;
@@ -95,7 +96,6 @@
         }
 
         #main {
-            margin-left: 250px;
             transition: .5s;
             padding: 16px;
             background-color: #aab3d3;
@@ -106,7 +106,6 @@
         .horibox {
             background-color: whitesmoke;
             padding: 10px;
-
             width: auto;
             height: 220px;
             box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);
@@ -199,6 +198,9 @@
             clear: both;
             position: relative;
         }
+       .horibox .image-cropper label img:hover{
+           opacity:0.6;
+       }
 
         @media screen and (max-height: 900px) {
             .sidenav {
@@ -211,6 +213,9 @@
         }
 
         @media screen and (max-width: 900px) {
+            .topnav{
+                display: none;
+            }
             .sidenav {
                 width: 100%;
             }
@@ -248,44 +253,39 @@
             a.closebtn {
                 display: none;
             }
-
-            .row_details {
-                margin-left: 250px;
+            .sidenav{
+                display: none;
             }
-
-            .row {
-                margin-left: 250px;
+            #main{
+                display: none;
             }
-
         }
     </style>
 </head>
 
 <body>
-
+    <div class="topnav" id="myTopnav">
+        <img src="./image/logo2.png" alt="logo" style="float: left;height:45px;margin :15px;">
+        <a href="#home" class="btn">Home</a>
+        <a href="#history" class="btn">History</a>
+        <a href="#account" class="btn active">Profile</a>
+        <a href="landing_page.html" class="logout" style="float: right;">👤Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" style="margin:10px 10px 0 0 ; float:right;"
             onclick="closeNav()">⤬</a>
+            <img src="./image/logo_a.png" alt="logo" style="float: left;height:45px;margin :10px;">
         <div class="image-cropper" id="output" style=" margin-top:115px;">
             <img src="./image/guy.jpg" class="rounded" />
         </div>
         <h4 style="margin:10px;">John Doe</h4>
-        <div>
-            <b href="#"><i class="fa fa-dribbble"></i></b>
-            <b href="#"><i class="fa fa-twitter"></i></b>
-            <b href="#"><i class="fa fa-linkedin"></i></b>
-            <b href="#"><i class="fa fa-facebook"></i></b>
-        </div>
-
-
-        <p><input type="file" accept="image/*" name="image" id="file" style="display:none;">
-        </p>
-        <p><button><label for="file" style="cursor: pointer;">Edit </label></button></p>
-
 
         <a class="active" href="#profile">Profile</a>
-        <a href="#account">Account</a>
-        <a href="#status">Status</a>
+        <a href="#history">History</a>
+        <a href="#home">Home</a>
     </div>
 
     <div id="main">
@@ -295,7 +295,8 @@
         <div class="column1">
             <div class="horibox">
                 <div class="image-cropper">
-                    <img src="./image/guy.jpg" class="rounded" />
+                    <input type="file" accept="image/*" name="image" id="file" style="display:none;">
+                    <label for="file" style="cursor: pointer;"> <img src="./image/guy.jpg" class="rounded"/></label>
                 </div>
 
             </div>
@@ -306,11 +307,11 @@
             <p>Username:john_customer<br>✆91-8922122901 <br>✉justexp@gmail.com</p>
         </div>
         <div class="column2" style="background-color:whitesmoke;box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);">
-            <p style="padding-top:10%;color:rgb(77, 77, 77);font-size:23px;">Total no. of Transactions<br><b
+            <p style="padding-top:12%;color:rgb(77, 77, 77);font-size:23px;">Total no. of Transactions<br><b
                     style="font-size: 18px; color:#7a68cae0">20</b></p>
         </div>
         <div class="column2" style="background-color:whitesmoke;box-shadow: 0px 4px 4px -3px rgba(119, 119, 119, 0.2);">
-            <p style="padding-top:10%;color:rgb(77, 77, 77);font-size:23px;">Available Balance<br><b
+            <p style="padding-top:12%;color:rgb(77, 77, 77);font-size:23px;">Available Balance<br><b
                     style="font-size: 18px; color:#7a68cae0">₹2400</b></p>
         </div>
     </div>
@@ -413,16 +414,11 @@
             </table>
         </div>
     </div>
-
+ <script src="./js/active.js"></script>
     <script>
         function openNav() {
-            if (screen.width > 500) {
-                document.getElementById("mySidenav").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-            }
-            if (screen.width < 500) {
                 document.getElementById("mySidenav").style.width = "100%";
-            }
+            
         }
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";

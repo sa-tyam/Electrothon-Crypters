@@ -1,0 +1,86 @@
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height:420px; /* Should be removed. Only for demonstration */
+    background-color: white;
+  }
+  button{
+      margin: 5px;
+    padding:3px;
+    border: none;
+    background-color:  #5d6faa;
+    color: white;
+  }
+  button:hover{
+      background-color:  rgb(253, 194, 0);
+      color: black;
+      cursor: pointer;
+  }
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column_card{
+    float: left;
+    background-color: #8c9bcc;
+    width: 25%;
+    padding: 0 20px;
+  }
+
+  .card{
+      margin-top:10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    height:250px;
+    border-radius: 3%;
+    background-color:white;
+  }
+  
+  .container{
+      width: 100%;
+      background-color: white;
+      margin-top: 20px;
+      margin-left: auto;margin-right: auto;
+      display: table;
+      font-family: Arial, Helvetica, sans-serif; 
+    padding: 10px 20px;
+    border-radius: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  .container h2{
+    text-align: center;
+  }
+  label{
+    font-size:16px;
+    margin: 20px;
+  }
+  input,textarea{
+    margin:20px;
+    padding:10px 20px;
+    font-size:15px;
+    width:90%;
+    border:none;
+    background-color: #f1f1f1;
+  }
+  .footer{
+background-color: black;
+color: white;
+margin-top: 40px;
+height:100px;
+padding: 20px;
+text-align: center;
+  }
+  /* Responsive layout - when the screen is less than 600px wide, make the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      max-height:370px;
+    }
+    .column_card{
+        width: 100%;
+    }
+  }

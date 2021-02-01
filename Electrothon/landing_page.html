@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/topnav.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/slideshow_landing_page.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background: rgba(211, 191, 102, 0.336);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="topnav" id="myTopnav">
+    <img src="./image/logo2.png" alt="logo" style="float: left;height:40px;margin:20px 10px 10px 10px;">
+    <a href="#home" class="btn active">Home</a>
+    <a href="#about" class="btn">About Us</a>
+    <a href="#work" class="btn">How it Works</a>
+    <a href="#contact" class="btn">Contact Us</a>
+    <a href="login_form.html" class="login">👤Login</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <div class="row"style="box-shadow:0px 2px 5px rgba(145, 132, 61, 0.192);">
+    <div class="column" style="text-align: center;padding-top:5%;font-family:'Courier New', Courier, monospace;">
+      <p style="font-size:50px;">Every <b style="color: rgb(253, 194, 0);background-color: black;">₿it</b> is worth it
+      </p>
+      <b>
+        <p style="color: rgb(136, 100, 1);">One bit, one change, million lives</p>
+      </b>
+      <button><a href="login_form.html" style="text-decoration: none;color: white;">Get started </a></button>
+      <button><a href="#work" style="text-decoration: none;color: white;"> How it works</a></button>
+    </div>
+    <div class="column">
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <img src="./image/1.jpg" style="width:100%;">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./image/2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./image/3.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./image/4.jpg" style="width:100%">
+        </div>
+      </div>
+      <br>
+
+      <div style="text-align:center;display: none;">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding: 2% 10%;">
+    <div class="column_card">
+      <div class="card">
+        <h3>Centralized</h3>
+        <hr>
+        <img src="./image/centralized.png" style="width: 64px; height:auto; " alt="centralization">
+        <p>Centralized system for secure transaction</p>
+      </div>
+    </div>
+    <div class="column_card">
+      <div class="card">
+        <h3>Secure</h3>
+        <hr>
+        <img src="./image/shield (1).png" style="width: 64px; height:auto; " alt="centralization">
+        <p>Zero chances of fraud or hacking</p>
+      </div>
+    </div>
+    <div class="column_card">
+      <div class="card">
+        <h3>Profitable</h3>
+        <hr>
+        <img src="./image/cost.png" style="width: 64px; height:auto; " alt="centralization">
+        <p>Most profitable method to trade currencies</p>
+      </div>
+    </div>
+    <div class="column_card">
+      <div class="card">
+        <h3>Credit</h3>
+        <hr>
+        <img src="./image/personal.png" style="width: 64px; height:auto; " alt="centralization">
+        <p>For any Farmer or shopkeeper that wants a loan</p>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding:0px 10%;">
+    <div class="container"id="about">
+      <h2 style="padding-left: 10px;" >About Us</h2>
+      <hr>
+      <p>Crebit is a centralized farm related loan rendering service.The main concept of our website is blockchain.It is
+        a progressing, transparent and profitable
+        technology.We're linking with the bank to promote a secure and trustworthy interface that credits the farmers
+        digital money.Together we strive to promote an imperative change that can affect
+        million of lives in coming years.</p>
+    </div>
+    <div class="container" id="work">
+      <h2 style="padding-left: 20px;">How it Works</h2>
+      <div class="column_card">
+        <div class="card">
+          <img src="./image/service.png" alt="Service_r" style="width: 100px;">
+          <p>Register shopkeepers and service providers related to farming with us</p>
+        </div>
+      </div>
+      <div class="column_card">
+        <div class="card">
+          <img src="./image/customer.png" alt="Cus_r" style="width: 100px;">
+          <p>Register customers and provide them with farming loans</p>
+        </div>
+      </div>
+      <div class="column_card">
+        <div class="card">
+          <img src="./image/registered.png" alt="registered" style="width: 100px;">
+          <p>Our digital currency can be used only with the registered shops and service providers</p>
+        </div>
+      </div>
+      <div class="column_card">
+        <div class="card">
+          <img src="./image/block.png" alt="" style="width: 100px;">
+          <p>When a user is registered,a chain responsible for their transactions is initiated</p>
+        </div>
+      </div>
+      <div class="column_card">
+        <div class="card">
+          <img src="./image/plus.png" alt="" style="width: 100px;">
+          <p>For every transaction made,a block is added to user's chain </p>
+        </div>
+      </div>
+      <div class="column_card">
+        <div class="card">
+          <img src="./image/pay.png" alt="" style="width: 100px;">
+          <p>Farmers can repay their loans using cash and with remaining digital currency</p>
+        </div>
+      </div>
+      <div class="column_card">
+        <div class="card">
+          <img src="./image/currency-exchange.png" alt="" style="width: 100px;">
+          <p>Shopkeepers can exchange their digital currency with cash</p>
+        </div>
+      </div>
+      <div class="column_card">
+        <div class="card">
+          <img src="./image/mobile-banking.png" alt="" style="width: 100px;">
+          <p>A chain is completed only when all the digital currency finally returns to the bank.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="container" id="contact" style="max-width: 600px;">
+      <h2>Contact Us</h2>
+      <hr>
+
+      <form action="mailto:#" method="post" enctype="text/plain">
+        <label for="">Name:</label>
+        <input type="text" name="Viewer name" value="" required>
+        <br>
+        <label for="">Email:</label>
+        <input type="email" name="Viewer Address" value="" required>
+        <br>
+        <label for="">Message:</label><br>
+        <textarea name="Viewer message" style="width:90%;height:100px;font-size: 15px;" required></textarea>
+        <input type="submit" style="background-color:#8c9bcc;border: none;color: white;">
+      </form>
+    </div>
+  </div>
+<div class="footer">Copyright@NITH</div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+  <script src="./js/slideshow_landing_page.js"></script>
+  <script src="./js/active.js"></script>
+</body>
+
+</html>
