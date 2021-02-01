@@ -1,6 +1,4 @@
 from django.db import models
-
-from django.db import models
 from hashlib import sha256
 import datetime
 from django.urls import reverse

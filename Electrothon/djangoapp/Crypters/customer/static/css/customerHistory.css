@@ -1,7 +1,8 @@
 body, html {
   height: 100%;
-  font-family: "Inconsolata", sans-serif;
-  background-image: linear-gradient(white,grey);
+
+  background-image: linear-gradient(#EEDC82,  white);
+
 
 
 }
@@ -19,7 +20,7 @@ position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color:bisque;
+  background-color:light-grey;
   font-size: large;
   text-align: center;
 }

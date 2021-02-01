@@ -78,6 +78,10 @@ def CustomerHistory (request):
     username = request.user.username
     u = User.objects.get(username=username)
 
+    customer_type = ''
+    if u.userprofile.user_type == 'shopkeeper':
+        customer_type = 'shopkeeper'
+
     loan_list = []
 
     amount_list = []
@@ -123,13 +127,14 @@ def CustomerHistory (request):
 
     trans_list = zip (trans_amount_list, trans_depositor_list, trans_time_list)
 
-    return render (request, 'customerHistory.html', {'loan_list': loan_list, 'trans_list':trans_list})
+    return render (request, 'customerHistory.html', {'loan_list': loan_list, 'customer_type':customer_type, 'trans_list':trans_list})
 
 def CustomerProfile (request):
 
     username = request.user.username
     u = User.objects.get(username=username)
     name = u.userprofile.name
+    email = u.email
     date_of_birth = u.userprofile.date_of_birth
     age =u.userprofile.age
     gender = u.userprofile.gender
@@ -145,6 +150,7 @@ def CustomerProfile (request):
 
     return render (request, 'customerProfile.html', {
         "username":username,
+        "email":email,
         'name':name,
         'date_of_birth':date_of_birth,
         'age':age,

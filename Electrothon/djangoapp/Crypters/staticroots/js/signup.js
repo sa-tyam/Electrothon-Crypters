@@ -59,3 +59,12 @@ var color2 = "rgb("+r2+","+g2+","+b2+")";
 }
 
 setInterval(updateGradient,10);
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}

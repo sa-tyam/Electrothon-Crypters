@@ -1,3 +1,63 @@
-body {
-    background-color: green;
+body, html {
+  height: 100%;
+
+}
+
+.w3-top
+{
+display: inline;
+}
+
+.bgimg {
+
+  background-position: center;
+  background-size: cover;
+  background-image: url("demo.png");
+
+   min-height:95%;
+  position:relative;
+}
+
+.menu {
+  display: none;
+}
+
+form.example input[type=text] {
+  padding: 5px;
+  font-size: 17px;
+  border: 2px solid black;
+  float: left;
+  width: 60%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 23%;
+  padding: 5px;
+  background: grid-row-end;
+  color: black;
+  font-size: 17px;
+  border: 2px solid black;
+  border-left: none;
+  cursor: pointer;
+
+}
+
+form.example button:hover {
+  background: #818f99;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#loans
+{
+
+  max-width: 700px;
+  margin-bottom:50px;
+
 }

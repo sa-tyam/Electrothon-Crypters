@@ -1,3 +1,43 @@
-body {
-    background-color: red;
+body, html {
+  height: 100%;
+
+  background-image: linear-gradient(#EEDC82,  white);
+
+
+
+}
+
+.w3-top
+{
+display: inline;
+position: relative;
+}
+
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:light-grey;
+  font-size: large;
+  text-align: center;
+}
+table{
+  padding-top: 100px;
+}
+table, th, td {
+
+  border: 3px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: large;
+  font-family: "Inconsolata", sans-serif;
+  font-weight: bold;
+}
+table{
+  margin-top: 200px;
+  margin-left: 350px;
+
 }

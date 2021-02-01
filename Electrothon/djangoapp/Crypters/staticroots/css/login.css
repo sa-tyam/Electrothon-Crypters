@@ -38,7 +38,6 @@ label{
  color: #2b2b2b;
  padding:3px;
 }
-
 input[type=text], input[type=password] {
  width: 100%;
  padding:3.5%;;
@@ -103,4 +102,69 @@ span.psw {
  .cancelbtn {
     width: 100%;
  }
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+  border-bottom: 1px solid rgba(168, 138, 4, 0.123);
+  font-family: 'Courier New', monospace;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 30px 35px;
+  text-decoration: none;
+  font-size: 15px;
+
+}
+
+.topnav a:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgba(209, 187, 91, 0.89);
+}
+
+.topnav a.active {
+  background-color: #8c9bcc;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .topnav a {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    top: 0;
+    right: 0;
+    position: relative;
+  }
+
+  .topnav.responsive a {
+    width: 100%;
+    float: none;
+    display: block;
+    text-align: center;
+  }
 }
