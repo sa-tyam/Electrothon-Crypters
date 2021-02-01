@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<title>Shopkeeper Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+body, html {
+  height: 100%;
+
+}
+
+  .topnav {
+    margin:0;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgba(168, 138, 4, 0.123);
+  }
+  
+  .topnav a {
+    float: left;
+    width: 150px;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 25px 16px;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .topnav a:hover {
+    color:rgb(255, 255, 255);
+    background-color: rgba(209, 187, 91, 0.89);
+  }
+  
+  .topnav a.active {
+    background-color: #8c9bcc;
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .topnav a  {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+        top: 0;
+        right: 0;
+      position: relative;
+    }
+    .topnav.responsive a {
+      width: 100%;
+      float: none;
+      display: block;
+      text-align:center;
+    }
+  }
+
+
+.bgimg {
+  
+  background-position: center;
+  background-size: cover;
+  background-image: url("demo.png");
+
+   min-height:95%;
+  position:relative;
+}
+
+.menu {
+  display: none;
+}
+
+form.example input[type=text] {
+    margin-left: 80px;
+    margin-top:15px;
+  padding: 5px;
+  font-size: 17px;
+  border: 2px solid black;
+  float: left;
+  width: 60%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: right;
+  width:20px
+  padding: 5px;
+  
+  color: black;
+  font-size: 17px;
+  position:relative;
+  height:30px
+  cursor: pointer;
+
+  
+}
+
+form.example button:hover {
+  background: #818f99;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+#loans
+{
+  
+  max-width: 700px;
+  margin-bottom:50px;
+
+}
+
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+
+    
+
+ <div class="topnav" id="myTopnav">
+        <img src="logo2.png" alt="logo" style="float: left;height:45px;margin :10px;">
+        <a href="new_shopkeeper.html" class="active">Home</a>
+         <a href="new_history_Shopkeeper.html" >History</a>
+          <a href="profile.html ">My Profile</a>
+        
+        <a href="#login">Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+          
+        </a>
+        <div class="w3-col s4">
+      <form class="example"  style="margin:auto;">
+        <input type="text" placeholder="Verify..." name="search2">
+        
+      </form>
+  </div>
+      </div>
+    
+
+  
+
+   
+     
+      
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small w3-large w3-ca">
+    
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-black" style="font-size:50px">Every Bit Is<br>Worth It</span><br>
+    <span class="w3-tag">Customer ID: Shopkeeper</span>
+  </div>
+ 
+    
+
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-16" ><span class="w3-tag w3-wide">CURRENT LOANS</span></h5>
+    <p id="loans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias laborum dolore voluptatem atque ex. Eaque deleniti facilis ad voluptas, eum necessitatibus unde soluta velit, neque ab cum sint expedita!</p>
+   
+    
+  </div>
+</div>
+
+<!-- Added Current Loans-->
+
+
+
+<!-- Contact/Area Container -->
+
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-38 w3-large">
+  <div class="copyright">
+    &copy; Copyright <strong><span>NIT Hamirpur</span></strong>. All Rights Reserved
+  </div>
+</footer>
+
+<script>
+// Tabbed Menu
+function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+</script>
+
+</body>
+</html>
