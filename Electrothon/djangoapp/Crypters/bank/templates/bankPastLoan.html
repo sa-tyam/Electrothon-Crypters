@@ -1,26 +1,61 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <link rel="stylesheet" href="{% static 'css/bankPastLoan.css' %}">
-    </head>
-    <body>
-        <h1>bank Loans</h1>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/bankPastLoan.css' %}">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        {% for user, username, amount, emi_amount, period, interest, issue_date, end_date in main_list %}
-        <hr>
-            user : {{user}}
-            username : {{username}}
-            amount : {{amount}}
-            emi_amount : {{emi_amount}}
-            period : {{period}}months
-            interest : {{interest}}
-            issue_date : {{issue_date}}
-            end_date : {{end_date}}
-            <hr>
-        {% endfor %}
+</head>
+<body>
 
-    </body>
+    <div class="topnav" id="myTopnav">
+        <img src="{% static 'media/logo2.png' %}" alt="logo" style="float: left;height:40px;margin:20px 10px 10px 10px;">
+        <a href="{% url 'bank:bank_home' %}" class="btn">Home</a>
+        <a href="{% url 'loan:new_loan' %}" class="btn">New Loan</a>
+        <a href="{% url 'bank:past_loan' %}" class="btn active">Past Loan</a>
+        <a href="{% url 'landing_page' %}" class="logout">👤Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      <h1 style="text-align: center;">PAST LOANS</h1>
+<div style="overflow-x:auto;">
+  <table>
+    <tr style="border-bottom: 1px solid rgba(0, 0, 0, 0.13);">
+        <th>Username</th>
+        <th>Amount(₹)</th>
+        <th>EMI Amount(₹)</th>
+        <th>Period(months)</th>
+        <th>Interest(%)</th>
+        <th>Issue Date</th>
+        <th>End Date</th>
+    </tr>
+    {% for user, username, amount, emi_amount, period, interest, issue_date, end_date in main_list %}
+    <tr>
+        <td>{{username}}</td>
+        <td>Rs. {{amount}}</td>
+        <td>Rs. {{emi_amount}}</td>
+        <td>{{period}} months</td>
+        <td>{{interest}} % p.a.</td>
+        <td>{{issue_date}}</td>
+        <td>{{end_date}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+<script src="{% static 'js/bankPastLoan.js' %}"></script>
+</body>
 </html>

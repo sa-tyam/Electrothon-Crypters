@@ -63,16 +63,37 @@
   }
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
+body {
+margin: 0;
+background: rgba(211, 191, 102, 0.212);
 }
 
-th, td {
-  text-align: left;
-  padding: 8px;
+* {
+box-sizing: border-box;
 }
-
-tr:nth-child(even){background-color: rgba(204, 222, 255, 0.452)}
+form{
+max-width: 400px;
+background-color: white;
+margin-top:20px;
+padding: 10px 40px;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+}
+input{
+margin:15px 0px;
+width:100%;
+padding: 10px 15px;
+border: none;
+background-color: #f1f1f1;
+}
+label{
+font-size:18px;
+}
+#submit_button{
+width: 100%; padding:10px 20px;border: none;background-color:  #8c9bcc; color: white;font-size: 18px;
+}
+#submit_button:hover{
+background-color: black;
+cursor: pointer;
+}

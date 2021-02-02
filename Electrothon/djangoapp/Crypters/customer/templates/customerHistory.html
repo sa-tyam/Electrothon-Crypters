@@ -1,103 +1,80 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
-<title>Website</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/customerHistory.css' %}">
+    <title>Customer History</title>
 
+</head>
 <body>
+    <div class="topnav" id="myTopnav">
+        <img src="{% static 'media/logo2.png' %}" alt="logo" style="float: left;height:45px;margin :10px;">
+        <a href="{% url 'customer:customer_home' %}" >Home</a>
+         <a href="{% url 'customer:customer_history' %}" class="active">History</a>
+          <a href="{% url 'customer:customer_profile' %} ">My Profile</a>
 
-<!-- Links (sit on top) -->
-<div class="w3-top">
-  <div class="w3-row w3-padding w3-white">
-    <div class="w3-col s4 ">
-      <a href="{% url 'customer:customer_home' %}" class="w3-button w3-block "><b>HOME</b></a>
-    </div>
+        <a href="{% url 'landing_page' %}">Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
 
-    <div class="w3-col s4">
-      <a href="{% url 'customer:customer_history' %}" class="w3-button w3-block "><b>HISTORY</b></a>
-    </div>
+        </a>
+      </div>
+     <div style="overflow-x:auto;">
+  <table>
+  <caption style="text-align:center; font-weight: bold; font-size: 29px;">Transaction Table</caption>
+    <tr>
+      <th>Amount</th>
+      <th>Depositor</th>
+      <th>Transaction time</th>
 
-     <div class="w3-col s4  ">
-      <a href="{% url 'customer:customer_profile' %}" class="w3-button w3-block "><b>MY PROFILE</b></a>
-    </div>
-
-
-  </div>
+    </tr>
+    {% for amount, depositor, time in trans_list%}
+    <tr>
+      <td>Rs. {{amount}}</td>
+      <td>{{depositor}}</td>
+      <td>{{time}}</td>
+    </tr>
+    {% endfor %}
+  </table>
 </div>
 
-{% if customer_type %}
-    <div class="t1">
-        <table style="width: 50%">
-          <caption>History Of Transactions</caption>
-
-          <tr>
-           <th>Amount</th>
-           <th>Depositor</th>
-           <th>Transaction Time</th>
-         </tr>
-
-          {% for amount, depositor, time in trans_list%}
-          <tr>
-            <td>Rs. {{amount}}</td>
-            <td>{{depositor}}</td>
-            <td>{{time}}</td>
-          </tr>
-          {% endfor %}
-          </table>
-    </div>
-{% endif %}
-
-<div class="t1">
-      <table style="width: 50%">
-        <caption>History Of Loans</caption>
-
-        <tr>
-         <th>Amount</th>
-         <th>Period</th>
-         <th>Issue Date</th>
-         <th>Last Date</th>
-         <th>EMI</th>
+<div style="overflow-x:auto;">
+  <table>
+  <caption style="text-align:center; font-weight: bold; font-size: 29px;">History of loans</caption>
+    <tr>
+      <th>Amount</th>
+      <th>Period</th>
+      <th>Issue Date</th>
+      <th>Last Date</th>
+      <th>EMI</th>
+    </tr>
+    {% for amount, emi_amount, period, interest, issue_date, end_date in loan_list%}
+       <tr>
+           <th>Rs. {{amount}}</th>
+           <th>{{Period}} months</th>
+           <th>{{issue_date}}</th>
+           <th>{{end_date}}</th>
+           <th>Rs. {{emi_amount}}</th>
        </tr>
-
-       {% for amount, emi_amount, period, interest, issue_date, end_date in loan_list%}
-          <tr>
-              <th>Rs. {{amount}}</th>
-              <th>{{Period}} months</th>
-              <th>{{issue_date}}</th>
-              <th>{{end_date}}</th>
-              <th>Rs. {{emi_amount}}</th>
-          </tr>
-       {% endfor %}
-        </table>
+    {% endfor %}
+  </table>
 </div>
 
 
 
-
-  <div class="footer">
-    &copy; Copyright <strong><span>NIT Hamirpur</span></strong>. All Rights Reserved
-  </div>
-
-<script>
-// Tabbed Menu
-function openMenu(evt, menuName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("menu");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
-  }
-  document.getElementById(menuName).style.display = "block";
-  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
-}
-document.getElementById("myLink").click();
-</script>
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+        </script>
 
 </body>
 </html>

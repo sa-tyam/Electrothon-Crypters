@@ -1,11 +1,53 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="container">
-    <h1>loan</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{loan_form.as_p}}
-        <input type="submit" value="Issue" class="btn btn-default">
-    </form>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/loancreate.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Loan</title>
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <img src="{% static 'media/logo2.png' %}" alt="logo" style="float: left;height:40px;margin:20px 10px 10px 10px;">
+        <a href="{% url 'bank:bank_home' %}" class="btn">Home</a>
+        <a href="{% url 'loan:new_loan' %}" class="btn active">New Loan</a>
+        <a href="{% url 'bank:past_loan' %}" class="btn">Past Loan</a>
+        <a href="{% url 'landing_page' %}" class="logout">👤Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+       <form method="POST">
+           {% csrf_token %}
+           <h1 style="text-align: center;">Loan Statement</h1>
+<hr>
+<label for="{{ loan_form.username.id_for_label }}">Username</label>
+<input type="text" placeholder="Username" name="{{loan_form.username.html_name}}" id="username" required>
+
+<label for="{{ loan_form.amount.id_for_label }}">Amount</label>
+<input type="text" placeholder="Amount" name="{{loan_form.amount.html_name}}" id="amount" required>
+
+<label for="{{ loan_form.period.id_for_label }}">Period</label>
+<input type="text" placeholder="Period" name="{{loan_form.period.html_name}}" id="period" required>
+
+<label for="{{ loan_form.interest.id_for_label }}">Interest</label>
+<input type="text" placeholder="Interest" name="{{loan_form.interest.html_name}}" id="interest" required>
+
+        <button type="submit" id="submit_button">Apply for Loan</button>
+        <p style="text-align: center;font-size: 18px;">Not a User yet?<a href="{% url 'accounts:signup' %}" style="text-decoration: none;color: yellowgreen;">Register</a></p>
+       </form>
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+      </script>
+     <script src="{% static 'js/loancreate.js' %}"></script>
+</body>
+</html>
