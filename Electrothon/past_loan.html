@@ -1,0 +1,86 @@
+
+    <!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./css/topnav.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: rgba(204, 222, 255, 0.452)}
+</style>
+</head>
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <img src="./image/logo2.png" alt="logo" style="float: left;height:40px;margin:20px 10px 10px 10px;">
+        <a href="bank_home.html" class="btn">Home</a>
+        <a href="new_loan.html" class="btn">New Loan</a>
+        <a href="#past_loan" class="btn active">Past Loan</a>
+        <a href="landing_page.html" class="logout">👤Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      <h1 style="text-align: center;">PAST LOANS</h1>
+<div style="overflow-x:auto;"> 
+  <table>
+    <tr style="border-bottom: 1px solid rgba(0, 0, 0, 0.13);">
+        <th>Sr. No.</th>
+        <th>Username</th>
+        <th>Amount(₹)</th>
+        <th>EMI Amount(₹)</th>
+        <th>Period(months)</th>
+        <th>Interest(%)</th>
+        <th>Issue Date</th>
+        <th>End Date</th>
+    </tr>
+    <tr>
+        <td >1.</td>
+        <td>test_user_one</td>
+        <td>15000</td>
+        <td>1418</td>
+        <td>12</td>
+        <td>2</td>
+        <td>Jan.30,2021</td>
+        <td>Jan.30,2022</td>
+    </tr>
+    <tr>
+        <td >2.</td>
+        <td>test_user_two</td>
+        <td>15000</td>
+        <td>1418</td>
+        <td>12</td>
+        <td>2</td>
+        <td>Jan.30,2021</td>
+        <td>Jan.30,2022</td>
+    </tr>
+     
+  </table>
+</div>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+<script src="./js/active.js"></script>
+</body>
+</html>

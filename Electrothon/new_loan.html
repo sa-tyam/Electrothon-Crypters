@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/topnav.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          body {
+      margin: 0;
+      background: rgba(211, 191, 102, 0.212);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    form{
+        max-width: 400px;
+        background-color: white;
+        margin-top:20px;
+        padding: 10px 40px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    input{
+        margin:15px 0px;
+        width:100%;
+        padding: 10px 15px;
+        border: none;
+        background-color: #f1f1f1;
+    }
+    label{
+     font-size:18px;
+    }
+    #submit_button{
+        width: 100%; padding:10px 20px;border: none;background-color:  #8c9bcc; color: white;font-size: 18px;
+    }
+    #submit_button:hover{
+        background-color: black;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <img src="./image/logo2.png" alt="logo" style="float: left;height:40px;margin:20px 10px 10px 10px;">
+        <a href="bank_home.html" class="btn">Home</a>
+        <a href="#new_loan" class="btn active">New Loan</a>
+        <a href="past_loan.html" class="btn">Past Loan</a>
+        <a href="landing_page.html" class="logout">👤Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+       <form>
+           <h1 style="text-align: center;">Loan Statement</h1>
+<hr>
+           <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username" name="username"required>
+        <label for="amount">Amount</label>
+        <input type="number" placeholder="Amount" id="amount"name="amount" required>
+        <label for="period">Period</label>
+        <input type="number" placeholder="Period" id="period"name="period" required>
+ 
+        <label for="interest">Interest</label>
+        <input type="number" placeholder="Interest" id="interest"name="interest" required>
+ 
+        <label for="password">Password</label>
+        <input type="text" placeholder="Password" id="password" name="password" required>
+        <button type="submit" id="submit_button">Apply for Loan</button>
+        <p style="text-align: center;font-size: 18px;">Not a User yet?<a href="registeration.html" style="text-decoration: none;color: yellowgreen;">Register</a></p>
+       </form>
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+      </script>
+      <script src="./js/active.js"></script>
+</body>
+</html>
