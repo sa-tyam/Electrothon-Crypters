@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{% static 'css/customerHome.css' %}">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 
 <!-- Links (sit on top) -->
@@ -25,22 +26,15 @@
        <div class="w3-col s4">
            {% if customer_type%}
            {% if not phone %}
-             <form  class="example"  style="margin:auto;max-width:300px" action="{% url 'customer:get_number' %}" method="post">
+             <form  class="example"  style="margin:auto;max-width:300px;text-align:center" action="{% url 'customer:get_number' %}" method="post">
                  {% csrf_token %}
                  <input type="text" placeholder="Search username" name="username" value="">
-                 <button type="submit" name='mybtn2' value="">verify</button>
+                 <button type="submit" style="float:right; text-align:center" name='mybtn2' value=""><i class="fa fa-search"></i></button>
              </form>
          {% endif %}
          {% endif %}
  </div>
      </div>
-
-
-
-
-
-
-
 
 
 
@@ -148,16 +142,20 @@ function codeVerify() {
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-16" ><span class="w3-tag w3-wide">CURRENT LOANS</span></h5>
         {% for amount, emi_amount, period, interest, issue_date, end_date, emi_start_date, emi_end_date in main_list%}
-        <p id="loans">
-        <h2>current loan:</h2>
-        amount : {{amount}} <br>
-        period : {{period}}months <br>
-        loan issue date : {{issue_date}} <br>
-        loan end date : {{end_date}} <br>
-        emi amount : {{emi_amount}} <br>
-        emi start date : {{emi_start_date}}<br>
-        emi end date : {{emi_end_date}} <br>
-        </p>
+        <div class="row">
+          <div class="column">
+        <div class="card">
+          <h3 style="text-align:center; font-size:20px;">Current Loan</h3><hr><hr>
+          <p><b>Amount:</b>Rs. {{amount}}</p>
+    	   <p><b>Period:</b> {{period}} months</p>
+            <p><b>Issue Date:</b> {{issue_date}}</p>
+             <p><b>End Date:</b> {{end_date}}</p>
+              <p><b>Emi Amount:</b>Rs. {{emi_amount}}</p>
+               <p><b>Emi Start Date:</b> {{emi_start_date}}</p>
+                <p><b>Emi End Date:</b> {{emi_end_date}}</p>
+      </div>
+    </div>
+  </div>
         {% endfor %}
 
   </div>

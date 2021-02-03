@@ -1,31 +1,68 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <link rel="stylesheet" href="{% static 'css/bankAdmin.css' %}">
-    </head>
-    <body>
-        <h1>bank Admin</h1>
-        <form action="{% url 'bank:get_user_block' %}" method="post">
-            {% csrf_token %}
-            <input type="text" name="username" value="">
-            <button type="submit" name='mybtn2' value="">get blocks</button>
-        </form>
-        {% for time_stamp, index, ammount_transferred, remaining_balance, hash, previous_hash, chain, nonce in main_list %}
-        <hr>
-        <h3>block</h3>
-        time stamp : {{time_stamp}}
-        <b><i>index : {{index}}</i></b>
-        amount transferred : {{ammount_transferred}}
-        remaining_balance : {{remaining_balance}}
-        <b><i>hash : {{hash}}</i></b>
-        <b><i>previous hash : {{previous_hash}}</i></b>
-        chain : {{chain}}
-        nonce : {{nonce}}
-        <br>
-        <hr>
-        {% endfor%}
-    </body>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Bank Admin</title>
+    <link rel="stylesheet" href="{% static 'css/bankAdmin.css' %}">
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <img src="{% static 'media/logo2.png' %}" alt="logo" style="float: left;height:45px;margin :10px;">
+        <a href="{% url 'bank:bank_home' %}" >Home</a>
+         <a href="{% url 'loan:new_loan' %}" >New Loan</a>
+          <a href="{% url 'bank:past_loan'%} ">Past Loan</a>
+        <a href="{% url 'bank:admin' %} " class="active">Admin</a>
+        <a href="{% url 'landing_page' %}">Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+
+        </a>
+      </div>
+      <form class="example" action="{% url 'bank:get_user_block' %}" method="post">
+          {% csrf_token %}
+          <input type="text" placeholder="Username" name="username">
+          <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+
+
+
+      {% for time_stamp, index, ammount_transferred, remaining_balance, hash, previous_hash, chain, nonce in main_list %}
+      <div class="row">
+        <div class="column">
+      <div class="card">
+  	       <div style="width:100%;">
+  		<span style="font-size:20px; float:left;">{{index}}</span>
+  		<span style="font-size:20px; float:right;">Rs. {{ammount_transferred}}</span>
+  	     </div>
+        <h3 style="text-align:center; font-size:20px;">{{chain}}</h3><hr><hr>
+        <p><b>Timestamp:</b> {{time_stamp}}</p>
+  	  <p><b>Remaining Balance:</b> Rs. {{remaining_balance}}</p>
+        <p><b>Hash: </b>{{hash}}</p>
+        <p><b>Previous Hash: </b> {{previous_hash}}</p>
+    </div>
+  </div>
+</div>
+
+      {% endfor%}
+
+
+
+
+
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+        </script>
+
+</body>
 </html>
